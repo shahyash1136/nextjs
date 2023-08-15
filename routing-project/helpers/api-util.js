@@ -1,10 +1,11 @@
 export async function getAllEvents() {
   const response = await fetch(
-    `https://nextjs-course-3c396-default-rtdb.firebaseio.com/events.json`
+    "https://nextjs-course-3c396-default-rtdb.firebaseio.com/events.json"
   );
   const data = await response.json();
 
   const events = [];
+
   for (const key in data) {
     events.push({
       id: key,
@@ -27,7 +28,9 @@ export async function getEventById(id) {
 
 export async function getFilteredEvents(dateFilter) {
   const { year, month } = dateFilter;
+
   const allEvents = await getAllEvents();
+
   let filteredEvents = allEvents.filter((event) => {
     const eventDate = new Date(event.date);
     return (

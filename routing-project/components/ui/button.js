@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import classes from "./button.module.css";
+import Link from 'next/link';
 
-const Button = (props) => {
+import classes from './button.module.css';
+
+function Button(props) {
   if (props.link) {
     return (
-      <Link className={classes.btn} href={props.link}>
+      <Link href={props.link} className={classes.btn}>
         {props.children}
       </Link>
     );
@@ -16,6 +16,6 @@ const Button = (props) => {
       {props.children}
     </button>
   );
-};
+}
 
 export default Button;

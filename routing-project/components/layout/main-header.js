@@ -1,5 +1,6 @@
-import Link from "next/link";
-import classes from "./main-header.module.css";
+import Link from 'next/link';
+
+import classes from './main-header.module.css';
 
 function MainHeader() {
   return (
