@@ -8,10 +8,10 @@ import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { CategoriesColumn } from "./columns";
+import { SizeColumn } from "./columns";
 
 interface CellActionProps {
-    data: CategoriesColumn
+    data: SizeColumn
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -23,19 +23,19 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
     const onCopy = (id: string) => {
         navigator.clipboard.writeText(id);
-        toast.success('Category Id copied to the clipboard')
+        toast.success('Size Id copied to the clipboard')
     }
     const onUpdate = (id: string) => {
-        router.push(`/${params.storeId}/categories/${id}`)
+        router.push(`/${params.storeId}/sizes/${id}`)
     }
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
             router.refresh();
-            toast.success('Category Deleted Successfully')
+            toast.success('Size Deleted Successfully')
         } catch (error) {
-            toast.error('Make sure you removed all products using this categories first')
+            toast.error('Make sure you removed all products using this size first')
         } finally {
             setLoading(false);
             setOpen(false)
