@@ -5,7 +5,7 @@ import { Heading } from '@/components/ui/heading'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Billbord } from '@prisma/client'
+import { Billboard } from '@prisma/client'
 import { Trash } from 'lucide-react'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -24,7 +24,7 @@ const formSchema = z.object({
 type BillboardFormValues = z.infer<typeof formSchema>
 
 interface BillboardFormProps {
-    initialData: Billbord | null
+    initialData: Billboard | null
 }
 
 export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {

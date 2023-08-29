@@ -4,7 +4,7 @@ import { BillboardColumn } from "./components/columns"
 import { format } from 'date-fns'
 
 const Billboards = async ({ params }: { params: { storeId: string } }) => {
-    const billboards = await prismadb.billbord.findMany({
+    const billboards = await prismadb.Billboard.findMany({
         where: {
             storeId: params.storeId
         },

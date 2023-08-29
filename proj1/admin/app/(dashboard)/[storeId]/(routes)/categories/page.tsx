@@ -9,12 +9,14 @@ const Categories = async ({ params }: { params: { storeId: string } }) => {
             storeId: params.storeId
         },
         include: {
-            billboard: true
+            billboard: true,
         },
         orderBy: {
             createdAt: 'desc'
         }
-    })
+    });
+
+    console.log(categories)
 
     const formattedCategories: CategoriesColumn[] = categories.map(item => ({
         id: item.id,
